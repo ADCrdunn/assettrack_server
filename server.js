@@ -5,7 +5,7 @@ const express = require("express")
 const dgram = require('dgram')
 const { StringDecoder } = require('string_decoder')
 
-const PORT = process.env.PORT || 3001
+const PORT = 3000
 
 const app = express()
 
