@@ -136,22 +136,9 @@ const socket = dgram.createSocket(
       message,
       sender
     })
-
-    // demo: respond to sender
-    socket.send(message.toUpperCase(), sender.port, sender.address, (error) => {
-      if (error) {
-        console.error(error)
-      } else {
-        console.log({
-          kind: 'RESPOND',
-          message: message.toUpperCase(),
-          sender
-        })
-      }
-    })
   }
 )
 
 // POI: bind two servers to same port
 server.listen(PORT)
-// socket.bind(PORT)
+socket.bind(PORT)
