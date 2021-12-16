@@ -154,4 +154,4 @@ const socket = dgram.createSocket(
 
 // POI: bind two servers to same port
 server.listen(PORT)
-socket.bind(PORT)
+// socket.bind(PORT)
