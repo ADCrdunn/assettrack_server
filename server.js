@@ -5,6 +5,8 @@ const express = require("express")
 const dgram = require('dgram')
 const { StringDecoder } = require('string_decoder')
 
+console.log("Starting server!");
+
 const PORT = 3000
 
 const app = express()
