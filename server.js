@@ -228,14 +228,15 @@ const socket = dgram.createSocket(
         ID_COUNT += 1;
     } else {
         // don't add if location is the same as last one
-        if (CURR_DEVICES[imei].lat == parseFloat(rawData[1]) &&
-            CURR_DEVICES[imei].lng == parseFloat(rawData[2])) {
+        if (CURR_DEVICES[imei].lat == dataPoint.lat &&
+            CURR_DEVICES[imei].lng == dataPoint.lng) {
                 return;
         }
 
         CURR_DEVICES[imei].lat = parseFloat(rawData[1]); // start at 1. since idx 0 is imei
         CURR_DEVICES[imei].lng = parseFloat(rawData[2]); // start at 1. since idx 0 is imei
         CURR_DEVICES[imei].alt = rawData[3]; // start at 1. since idx 0 is imei
+        CURR_DEVICES[imei].history.push(dataPoint);
     }
 
     writeDevicesFile(CURR_DEVICES);
