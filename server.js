@@ -71,7 +71,7 @@ function readDevicesFile() {
         const raw_devices_str = fs.readFileSync(DATA_FILE, 'utf8');
         devs = JSON.parse(raw_devices_str);
 
-        let highest = 1;
+        let highest = 0;
         for (const key in devs) {
             if (devs[key].id != null) {
                 if (devs[key].id > highest) {
