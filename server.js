@@ -52,7 +52,7 @@ const test_devices = [
     },
 ]
 
-var ID_COUNT = 0;
+var ID_COUNT = 1;
 var CURR_DEVICES = {};
 
 try {
@@ -65,10 +65,23 @@ try {
 }
 
 function readDevicesFile() {
+    console.log("Reading devices file");
     let devs = {};
     try {
         const raw_devices_str = fs.readFileSync(DATA_FILE, 'utf8');
         devs = JSON.parse(raw_devices_str);
+
+        let highest = 1;
+        for (const key in devs) {
+            if (devs[key].id != null) {
+                if (devs[key].id > highest) {
+                    highest = devs[key].id;
+                }
+            }
+        }
+
+        ID_COUNT = highest + 1;
+        console.log("Next ID: ", ID_COUNT);
     } catch(e) {
         console.log("Failed to read devices file", e.message);
     }
