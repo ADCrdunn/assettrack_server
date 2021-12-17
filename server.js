@@ -8,8 +8,8 @@ const fs = require('fs')
 
 console.log("Starting server!");
 
-// const DATA_DIR = "/data";
-const DATA_DIR = "./test"; // test data dir
+const DATA_DIR = "/data";
+// const DATA_DIR = "./test"; // test data dir
 
 const PORT = 3000
 const MARKER_FILE = `${DATA_DIR}/ebs.txt`
