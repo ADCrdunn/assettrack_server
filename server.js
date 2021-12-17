@@ -70,7 +70,7 @@ function readDevicesFile() {
         const raw_devices_str = fs.readFileSync(DATA_FILE, 'utf8');
         devs = JSON.parse(raw_devices_str);
     } catch(e) {
-        console.log("Failed to read devices file");
+        console.log("Failed to read devices file", e.message);
     }
 
     return devs;
