@@ -80,7 +80,7 @@ function writeDevicesFile(devices) {
     try {
         fs.writeFileSync(DATA_FILE, JSON.stringify(devices))
     } catch(e) {
-        console.log("Failed to write to devices file");
+        console.log("Failed to write to devices file", e.message);
     }
 }
 
